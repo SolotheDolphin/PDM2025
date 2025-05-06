@@ -709,7 +709,16 @@ function draw() {
         fill(confirmColor);
         text("CONFIRM", width - 100/2 -2.5,height -50/2 -2.5);
         pop();
+        stroke('black');
+        strokeWeight(5);
+        fill('white');
+        rect(0, 0, 100, 50);
+        noStroke();
+        fill('black');
+        text("Color: ", 50, 15);
+        text(setColors(), 50, 35);
       }
+      
       break;
     case GameStates.WRONG:
       if (time < 3){
@@ -804,7 +813,7 @@ function setColors(){
         done = true;
       }
       if(done == false){
-        if (brightness == 0){
+        if (brightness < 1){
           colorSet = 'black';
         } else {
           colorSet = 'grey';
@@ -828,6 +837,7 @@ function setColors(){
       }
     }
   }
+  return colorSet;
 }
 
 //startwith1
